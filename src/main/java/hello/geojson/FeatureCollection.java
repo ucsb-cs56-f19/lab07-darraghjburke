@@ -2,6 +2,9 @@ package hello.geojson;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.List;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import org.slf4j.Logger;
@@ -9,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 public class FeatureCollection {
   public String type;
+  public Metadata metadata;
+  public List<Feature> features;
   private static Logger logger = LoggerFactory.getLogger(FeatureCollection.class);
 
    /**
