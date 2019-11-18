@@ -19,7 +19,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @RunWith(SpringRunner.class)
-@AutoConfigureMockMvc
 @WebMvcTest(WebController.class)
 
 public class HomePageTest {
