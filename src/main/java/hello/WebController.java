@@ -8,6 +8,9 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import hello.geojson.FeatureCollection;
+
 import java.util.Map;
 import java.util.HashMap;
 
@@ -67,6 +70,9 @@ public class WebController {
         model.addAttribute("eqSearch", eqSearch);
         String json = e.getJSON(eqSearch.getDistance(), eqSearch.getMinmag());
         model.addAttribute("json", json);
+
+        FeatureCollection featureCollection = FeatureCollection.fromJSON(json);
+        model.addAttribute("featureCollection",featureCollection);
         
         return "earthquakes/results";
     }
