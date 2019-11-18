@@ -60,7 +60,14 @@ public class WebController {
     public String getEarthquakesResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             EqSearch eqSearch) {
         model.addAttribute("eqSearch", eqSearch);
-        // TODO: Actually do the search here and add results to the model
+        
+        EarthquakeQueryService e =
+           new EarthquakeQueryService();
+
+        model.addAttribute("eqSearch", eqSearch);
+        String json = e.getJSON(eqSearch.getDistance(), eqSearch.getMinmag());
+        model.addAttribute("json", json);
+        
         return "earthquakes/results";
     }
 }
